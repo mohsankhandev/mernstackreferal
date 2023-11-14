@@ -1,0 +1,121 @@
+.btnmid{
+    color: black;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    /* background-color: blue; */
+    padding: 8px 16px;
+    /* border: 1px white solid; */
+    box-shadow: 0px 25px 50px rgba(0,0,0,0.5);
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+transition: 2s;
+}
+
+.btnmid:before{
+    content: "";
+    width: 50%;
+    background: rgba(255,255,255,0.05);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 50%;
+}
+
+.btnmid span:nth-child(1){
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 0px;
+    left: 0px;
+    /* background-color: aqua; */
+    background: linear-gradient(to right,#dfdde6,#c42318);
+    animation: span1 2s linear infinite ;
+    
+}
+@keyframes span1 {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+
+    }
+    
+}
+
+.btnmid span:nth-child(2){
+    position: absolute;
+    width: 2%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    /* background-color: aqua; */
+    background: linear-gradient(to bottom,#dfdde6,#c42318);
+    animation: span2 2s linear infinite ;
+    animation-delay: 1s;
+
+    
+}
+@keyframes span2 {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100%);
+
+    }
+    
+}
+
+.btnmid span:nth-child(3){
+    position: absolute;
+    width: 100%;
+    height: 2%;
+    bottom: 0px;
+    right: 0px;
+    /* background-color: aqua; */
+    background: linear-gradient(to left,#dfdde6,#c42318);
+    animation: span3 2s linear infinite ;
+    
+}
+@keyframes span3 {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+
+    }
+    
+}
+.btnmid span:nth-child(4){
+    position: absolute;
+    width: 2%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    /* background-color: aqua; */
+    background: linear-gradient(to top,#dfdde6,#c42318);
+    animation: span4 2s linear infinite ;
+    animation-delay: 1s;
+    
+}
+@keyframes span4 {
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(-100%);
+
+    }
+    
+}
+
+.btnmid:hover{
+    background-color: yellow;
+    color: black;
+    box-shadow: 10px 25px 50px  yellow;
+    /* box-shadow: inset; */
+}
+
