@@ -18,6 +18,7 @@ const Login = () => {
     const [loginUser, response] = useUserLoginMutation()
 
     console.log("login", response?.data)
+    console.log("login data of", response?.data?.user)
     
     const onSubmit = e => {
         e.preventDefault();
@@ -28,12 +29,16 @@ const Login = () => {
            setErrors(response?.error?.data?.errors);
         }
        }, [response?.error?.data])
+
        const dispatch = useDispatch();
        const navigate = useNavigate();
+       
        useEffect(() => {
         if(response.isSuccess) {
           localStorage.setItem('userToken', response?.data?.token);
           dispatch(setUserToken(response?.data?.token))
+          console.log("user not coming",response?.data?.user)
+          console.log("alldetails ",response)
           dispatch(setUserdetails(response?.data?.user))
 
           navigate('/user');

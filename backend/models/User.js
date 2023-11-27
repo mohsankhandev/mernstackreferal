@@ -126,12 +126,15 @@ const UserSchema = mongoose.Schema({
 
     },    
   
+  resetToken: String,
+  resetTokenExpiration: Date,
     referralCode: { type: String, unique: true },
 
     // parentId: {type:String},
 
     // referrals: {type:String},
 },
+
 { timestamps: true }
 
 

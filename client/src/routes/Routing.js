@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminLogin from "../screens/auth/AdminLogin";
-import Categories from "../screens/dashboard/Categories";
+// import Categories from "../screens/dashboard/Categories";
 import CreateCategory from "../screens/dashboard/CreateCategory";
 import Products from "../screens/dashboard/Products";
 import UpdateCategory from "../screens/dashboard/UpdateCategory";
@@ -27,6 +27,11 @@ import Depositg from "../screens/users/Depositg.js";
 import Withdraw from "../screens/users/Withdraw.js";
 import Pendingwithdraw from "../screens/dashboard/Pendingwd.js";
 import Pendingdp from "../screens/dashboard/Pendingdp.js";
+import SearchUserdata from "../screens/dashboard/SearchUserdata.js";
+import ForgotPassword from "../screens/users/ForgotPassword .js";
+import ResetPassword from "../screens/users/ResetPassword.js";
+import Pendingwithdrawlist from "../screens/dashboard/Pendingwithdrawlist.js";
+import PendingDepositList from "../screens/dashboard/PendingDepositList.js";
 // import Pendingwithdraw from "../screens/dashboard/Pendingwithdraw";
 
 
@@ -46,6 +51,10 @@ const Routing = () => {
         <Route element={<UserAuthRoute />}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="forgetpassword" element={<ForgotPassword />} />
+          <Route path="rest" element={<ResetPassword />} />
+          <Route path="rest/:token" element={<ResetPassword />} />
+
         </Route>
         <Route element={<UserRoute />}>
           <Route path="user" element={<Dashboard />} />
@@ -100,8 +109,36 @@ const Routing = () => {
             }
           />
 
+<Route
+            path="searchuserdata"
+            element={
+              <Private>
+                <SearchUserdata />
+              </Private>
+            }
+          />
+          
+
+          <Route
+            path="withdrawlist"
+            element={
+              <Private>
+                <Pendingwithdrawlist />
+              </Private>
+            }
+          />
+
+<Route
+            path="Pendingdepositlist"
+            element={
+              <Private>
+                <PendingDepositList />
+              </Private>
+            }
+          />
 
 
+{/* PendingDepositList */}
           <Route
             path="products/:page"
             element={
@@ -118,22 +155,22 @@ const Routing = () => {
               </Private>
             }
           />
-          <Route
+          {/* <Route
             path="categories"
             element={
               <Private>
                 <Categories />
               </Private>
             }
-          />
-          <Route
+          /> */}
+          {/* <Route
             path="categories/:page"
             element={
               <Private>
                 <Categories />
               </Private>
             }
-          />
+          /> */}
           <Route
             path="create-category"
             element={

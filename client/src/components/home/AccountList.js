@@ -9,8 +9,8 @@ const AccountList = () => {
   return (
     <>
     <NavLink to="/user" className="account-list hover:bg-blue-400">
-    <BsPersonCircle size={22} />
-    <span className="account-list-title">my account</span>
+    <BsPersonCircle size={22} className=" "/>
+    <span className="account-list-title ml-2 inline-block text-lg">my account</span>
     </NavLink>
 
     <NavLink to="/deposit" className="account-list hover:bg-blue-400">

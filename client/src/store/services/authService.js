@@ -16,6 +16,7 @@ const authService = createApi({
                    }
                }
            }),
+           //user registration
            userRegister: builder.mutation({
             query: data => {
                 return {
@@ -33,9 +34,36 @@ const authService = createApi({
                     body: loginData
                 }
             }
+           }),
+
+           //
+        //    forgetPassword
+        forgetPassword: builder.mutation({
+            query: loginData => {
+                return {
+                    url: '/forgot-password',
+                    method: 'POST',
+                    body: loginData
+                }
+            }
+           }),
+           //
+
+           //reset password
+            //    forgetPassword
+        restPassword: builder.mutation({
+            query: loginData => {
+                return {
+                    url: '/reset-password',
+                    method: 'POST',
+                    body: loginData
+                }
+            }
            })
+           //
+           //
        }
     }
 });
-export const {useAuthLoginMutation, useUserRegisterMutation, useUserLoginMutation} = authService
+export const {useAuthLoginMutation, useUserRegisterMutation,useRestPasswordMutation,useForgetPasswordMutation, useUserLoginMutation} = authService
 export default authService

@@ -15,7 +15,7 @@ const Sidebar = ({ side, closeSidebar }) => {
         <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
           <i className="bi bi-card-list mr-2 inline-block text-lg"></i>{" "}
           <Link to="/dashboard/products" className="text-base capitalize">
-            products
+             Admin Dashboard
           </Link>
         </li>
 
@@ -33,25 +33,47 @@ const Sidebar = ({ side, closeSidebar }) => {
           </Link>
         </li>
 
-        
         <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
+          <i className="bi bi-card-list mr-2 inline-block text-lg"></i>{" "}
+          <Link to="/dashboard/searchuserdata" className="text-base capitalize">
+Search User
+          </Link>
+        </li>
+
+        <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
+          <i className="bi bi-card-list mr-2 inline-block text-lg"></i>{" "}
+          <Link to="/dashboard/withdrawlist" className="text-base capitalize">
+         Pending WD List
+          </Link>
+        </li>
+        <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
+          <i className="bi bi-card-list mr-2 inline-block text-lg"></i>{" "}
+          <Link to="/dashboard/Pendingdepositlist" className="text-base capitalize">
+          Pending DP List
+          </Link>
+        </li>
+
+        {/* Pendingdepositlist */}
+
+        {/* withdrawlist */}
+        {/* <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
           <i className="bi bi-bag-check mr-2 inline-block text-lg"></i>{" "}
           <Link to="/dashboard/orders" className="text-base capitalize">
             orders
           </Link>
-        </li>
-        <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
+        </li> */}
+        {/* <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
           <i className="bi bi-people-fill mr-2 inline-block text-lg"></i>{" "}
           <Link to="/dashboard/products" className="text-base capitalize">
             customers
           </Link>
-        </li>
-        <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
+        </li> */}
+        {/* <li className="px-4 cursor-pointer transition-all py-3 text-white flex items-center hover:bg-gray-600">
           <i className="bi bi-bar-chart mr-2 inline-block text-lg"></i>{" "}
           <Link to="/dashboard/categories" className="text-base capitalize">
             categories
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

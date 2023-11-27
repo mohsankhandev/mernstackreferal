@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.2",
+    "clipboard-copy": "^4.0.1",
     "currency-formatter": "^1.5.9",
     "framer-motion": "^6.3.15",
     "html-react-parser": "^2.0.0",

@@ -1,6 +1,9 @@
 const { validationResult } = require("express-validator");
 const UserModel = require("../models/User");
 const { hashedPassword, createToken, comparePassword } = require("../services/authServices");
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
+
 
 // @route POST /api/register
 // @access Public
@@ -168,3 +171,107 @@ module.exports.register = async (req, res) => {
             return res.status(400).json({ errors: errors.array() })
         }
     }
+
+
+    // Forgot Password - Generate Token
+
+    // Function to generate a unique token
+const generateToken = () => {
+    return crypto.randomBytes(20).toString('hex');
+  };
+    
+// Configuring NodeMailer with SMTP settings
+const transporter = nodemailer.createTransport({
+    service: 'Gmail', // e.g., Gmail, Yahoo, etc.
+    auth: {
+      user: 'mohsinweb786@gmail.com',
+      pass: 'xbrxegprewiowtsa',
+    },
+  });
+  
+  // Function to send reset password email
+  const sendResetPasswordEmail = (email, token) => {
+    const mailOptions = {
+      from: 'mohsinweb786@gmail.com',
+      to: email,
+      subject: 'Reset Your Password',
+      html: `<p>You are receiving this email because you (or someone else) have requested the reset of the password for your account.</p>
+            <p>Please click the following link or paste it into your browser to complete the process:</p>
+            <p>http://localhost:3000/rest/${token}</p>
+            <p>If you did not request this, please ignore this email and your password will remain unchanged.</p>`,
+    };
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  };
+
+
+    //
+
+    
+    module.exports.forgotPassword = async (req, res) => {
+    const { email } = req.body;
+    console.log(req.body)
+    console.log("this email for forget pass",email)
+    try {
+      const user = await UserModel.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      // Generate and save reset token with expiration
+      user.resetToken = generateToken();
+      user.resetTokenExpiration = Date.now() + 3600000; // 1 hour validity
+      await user.save();
+  
+      // Send reset email
+      sendResetPasswordEmail(email, user.resetToken);
+  
+      res.status(200).json({ message: 'Reset token sent to your email' });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  };
+
+
+
+  // Reset Password
+module.exports.resetPassword = async (req, res) => {
+    const { token, newPassword } = req.body;
+    console.log("data for rest ",req.body)
+
+    console.log("rest token",token)
+    console.log("newPassword", newPassword)
+    console.log("data for rest ",req.body)
+    try {
+      const user = await UserModel.findOne({
+        resetToken: token,
+        resetTokenExpiration: { $gt: Date.now() },
+      });
+      console.log("this user find for rest ",user)
+  
+      if (!user) {
+        return res.status(400).json({ message: 'Invalid or expired token' });
+      }
+
+      let newPassworddb
+      if(user){
+        newPassworddb= await hashedPassword(newPassword)
+      }
+  
+      // Update user's password
+      user.password = newPassworddb;
+      user.resetToken = undefined;
+      user.resetTokenExpiration = undefined;
+      await user.save();
+  
+      res.status(200).json({ message: 'Password reset successful Now Login With New Password', });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  };

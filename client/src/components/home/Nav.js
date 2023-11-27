@@ -13,39 +13,39 @@ const Nav = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <nav className="nav bg-yellow-500">
+      <nav className="nav bg-[#1f2937]">
         <div className="my-container">
           <div className="flex justify-between items-center">
             <Link to="/">
               <img src="/logo.svg" className="h-full object-cover" alt="logo" />
             </Link>
             <ul className="flex items-center">
-              <li className="nav-li cursor-pointer">
+              {/* <li className="nav-li cursor-pointer text-white">
                 <FiSearch
                   size={22}
                   onClick={() => dispatch(toggleSearchBar())}
                 />
-              </li>
+              </li> */}
               {userToken ? (
                 <li className="nav-li">
-                  <Link to="/user" className="nav-link">
+                  <Link to="/user" className="nav-link text-white">
                     {user?.name}
                   </Link>
                 </li>
               ) : (
-                <li className="nav-li">
+                <li className="nav-li text-white">
                   <Link to="/login" className="nav-link">
                     sign in
                   </Link>
                 </li>
               )}
 
-              <li className="nav-li relative">
+              {/* <li className="nav-li relative">
                 <Link to="/cart">
                   <BsHandbag size={20} />
                   <span className="nav-circle">{items}</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

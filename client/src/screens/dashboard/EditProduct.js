@@ -44,6 +44,7 @@ const EditProduct = () => {
     // stock: 0,
     // category: "",
     // colors: [],
+    pendingdp:0
   });
   
 
@@ -312,6 +313,88 @@ Phone
                   value={state.totalreferal}
                 />
               </div>
+
+
+              <div className="w-full md:w-6/12 p-3">
+                <label htmlFor="discount" className="label">
+                Wallet Address
+                </label>
+                <input
+                  type="text"
+                  name="udtwalletadres"
+                  className="form-control"
+                  id="udtwalletadres"
+                  placeholder="referalcommison..."
+                  onChange={handleInput}
+                  value={state.udtwalletadres}
+                />
+              </div>
+
+
+              <div className="w-full md:w-6/12 p-3">
+                <label htmlFor="discount" className="label">
+                Trx Hash
+                </label>
+                <input
+                  type="text"
+                  name="transationhashvbv"
+                  className="form-control"
+                  id="transationhashvbv"
+                  placeholder="referalcommison..."
+                  onChange={handleInput}
+                  value={state.transationhashvbv}
+                />
+              </div>
+
+              <div className="w-full md:w-6/12 p-3">
+                <label htmlFor="discount" className="label">
+               Referal Code
+                </label>
+                <input
+                  type="text"
+                  name="referralCode"
+                  className="form-control"
+                  id="referralCode"
+                  placeholder="referalcommison..."
+                  onChange={handleInput}
+                  value={state.referralCode}
+                />
+              </div>
+
+
+              {/* <div className="w-full md:w-6/12 p-3">
+                <label htmlFor="discount" className="label">
+               Pending Deposit
+                </label>
+                <input
+                  type="number"
+                  name="pendingdp"
+                  className="form-control"
+                  id="pendingdp"
+                  placeholder="referalcommison..."
+                  onChange={handleInput}
+                  value={state.pendingdp}
+                />
+              </div> */}
+
+
+              <div className="w-full md:w-6/12 p-3">
+                <label htmlFor="discount" className="label">
+                 Pending Deposit
+                </label>
+                <input
+                  type="number"
+                  name="pendingdp"
+                  className="form-control"
+                  id="pendingdp"
+                  placeholder="pendingdp..."
+                  onChange={handleInput}
+                  value={state.pendingdp}
+                />
+              </div>
+
+
+
      
 
               <div className="w-full p-3">

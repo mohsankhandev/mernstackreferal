@@ -9,6 +9,8 @@ import cartReducer from "./reducers/cartReducer";
 import homeProducts from "./services/homeProducts";
 import orderService from "./services/orderService";
 import userOrdersService from "./services/userOrdersService";
+import dashboardService from "./services/dashboardService";
+
 const Store = configureStore({
   reducer: {
     [authService.reducerPath]: authService.reducer,
@@ -18,6 +20,8 @@ const Store = configureStore({
     [paymentService.reducerPath]: paymentService.reducer,
     [orderService.reducerPath]: orderService.reducer,
     [userOrdersService.reducerPath]: userOrdersService.reducer,
+    [dashboardService.reducerPath]: dashboardService.reducer,
+    // []
     authReducer: authReducer,
     globalReducer: globalReducer,
     cartReducer,
@@ -30,6 +34,7 @@ const Store = configureStore({
       paymentService.middleware,
       orderService.middleware,
       userOrdersService.middleware,
+      dashboardService.middleware,
     ]),
 });
 export default Store;
